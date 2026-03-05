@@ -1,30 +1,31 @@
 import java.util.*;
 
-public class PalindromeCheckerApp {
-
-    public static boolean isPalindrome(String input) {
-
-        // Normalize string: remove spaces & symbols and convert to lowercase
-        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-
-        // Compare characters from both ends
-        for (int i = 0; i < normalized.length() / 2; i++) {
-
-            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
+public class UseCase7PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "A man a plan a canal Panama";
+        String input = "madam";
+        boolean isPalindrome = true;
 
-        boolean result = isPalindrome(input);
+        Deque<Character> deque = new LinkedList<>();
 
-        System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + result);
+        // Insert characters into deque
+        for (int i = 0; i < input.length(); i++) {
+            deque.addLast(input.charAt(i));
+        }
+
+        // Compare first and last
+        while (deque.size() > 1) {
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
+
+            if (first != last) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        System.out.println("Input text: " + input);
+        System.out.println("Is it a Palindrome?: " + isPalindrome);
     }
 }
