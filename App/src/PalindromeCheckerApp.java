@@ -1,26 +1,25 @@
-import java.util.Stack;
-
 import java.util.*;
 
-public class PalindromeCheckerApp {
+public class UseCase7PalindromeCheckerApp {
+
     public static void main(String[] args) {
 
         String input = "madam";
-
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
-
         boolean isPalindrome = true;
 
-        // Add characters to queue and stack
+        Deque<Character> deque = new LinkedList<>();
+
+        // Insert characters into deque
         for (int i = 0; i < input.length(); i++) {
-            queue.add(input.charAt(i));   // Enqueue
-            stack.push(input.charAt(i));  // Push
+            deque.addLast(input.charAt(i));
         }
 
-        // Compare dequeue and pop
-        for (int i = 0; i < input.length(); i++) {
-            if (queue.remove() != stack.pop()) {
+        // Compare first and last
+        while (deque.size() > 1) {
+            char first = deque.removeFirst();
+            char last = deque.removeLast();
+
+            if (first != last) {
                 isPalindrome = false;
                 break;
             }
