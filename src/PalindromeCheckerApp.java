@@ -1,31 +1,35 @@
-import java.util.*;
+public class UseCase13PalindromeCheckerApp {
 
-public class UseCase7PalindromeCheckerApp {
+    public static boolean isPalindrome(String input) {
+
+        int start = 0;
+        int end = input.length() - 1;
+
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+
+        return true;
+    }
 
     public static void main(String[] args) {
 
-        String input = "madam";
-        boolean isPalindrome = true;
+        String input = "level";
 
-        Deque<Character> deque = new LinkedList<>();
+        long startTime = System.nanoTime();
 
-        // Insert characters into deque
-        for (int i = 0; i < input.length(); i++) {
-            deque.addLast(input.charAt(i));
-        }
+        boolean result = isPalindrome(input);
 
-        // Compare first and last
-        while (deque.size() > 1) {
-            char first = deque.removeFirst();
-            char last = deque.removeLast();
+        long endTime = System.nanoTime();
 
-            if (first != last) {
-                isPalindrome = false;
-                break;
-            }
-        }
+        long executionTime = endTime - startTime;
 
-        System.out.println("Input text: " + input);
-        System.out.println("Is it a Palindrome?: " + isPalindrome);
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + result);
+        System.out.println("Execution Time : " + executionTime + " ns");
     }
 }
