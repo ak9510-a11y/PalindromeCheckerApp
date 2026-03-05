@@ -1,15 +1,19 @@
 import java.util.Scanner;
 
 public class PalindromeCheckerApp {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String input = "madam";
         boolean isPalindrome = true;
-
-        for (int i = 0; i < input.length() / 2; i++) {
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
+        char[] ch = input.toCharArray();
+        int start = 0;
+        int end = ch.length - 1;
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
                 isPalindrome = false;
                 break;
             }
+            start++;
+            end--;
         }
 
         System.out.println("Input text: " + input);
