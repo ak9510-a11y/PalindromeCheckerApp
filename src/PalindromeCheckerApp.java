@@ -10,7 +10,7 @@ class Node {
     }
 }
 
-public class PalindromeCheckerApp {
+public class UseCase8PalindromeCheckerApp {
 
     // Convert string to linked list
     public static Node createLinkedList(String str) {
