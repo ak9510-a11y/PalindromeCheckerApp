@@ -12,6 +12,7 @@ class Node {
 
 public class PalindromeCheckerApp {
 
+    // Convert string to linked list
     public static Node createLinkedList(String str) {
         Node head = null, tail = null;
 
@@ -29,6 +30,7 @@ public class PalindromeCheckerApp {
         return head;
     }
 
+    // Reverse linked list
     public static Node reverse(Node head) {
         Node prev = null;
         Node current = head;
@@ -40,9 +42,11 @@ public class PalindromeCheckerApp {
             prev = current;
             current = next;
         }
+
         return prev;
     }
 
+    // Check palindrome
     public static boolean isPalindrome(Node head) {
 
         if (head == null || head.next == null)
@@ -82,6 +86,6 @@ public class PalindromeCheckerApp {
         boolean result = isPalindrome(head);
 
         System.out.println("Input text: " + input);
-        System.out.println("Is it a Palindrome?: " + result);
+        System.out.println("Is it a Palindrome? " + result);
     }
 }
